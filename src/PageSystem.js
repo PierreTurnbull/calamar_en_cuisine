@@ -13,81 +13,41 @@ class PageSystem extends Component {
         };
         this.loadPage = this.loadPage.bind(this);
         this.changePage = this.changePage.bind(this);
-        // this.flipBuffer = this.flipBuffer.bind(this);
-        // this.componentWillMount = this.componentWillMount.bind(this);
-        // this.fillNextPages = this.fillNextPages.bind(this);
+        this.showPage = this.showPage.bind(this);
     }
-    // flipBuffer() {
-    //     if (this.state.currentPage < Object.keys(pageData).length - 1) {
-    //         if (this.state.pageIndex === 0) {
-    //             document.querySelector(".page0").style.display = "block";
-    //             document.querySelector(".page1").style.display = "none";
-    //         } else {
-    //             document.querySelector(".page0").style.display = "none";
-    //             document.querySelector(".page1").style.display = "block";
-    //         }
-    //         this.fillNextPages();
-    //         this.setState({
-    //             pageIndex: this.state.pageIndex === 0 ? 1 : 0,
-    //             currentPage: this.state.currentPage + 1
-    //         });
-    //         console.log(this.state.currentPage);
-    //         // ajax call to retrieve data here
-    //     }
-    // }
-    // fillNextPages() {
-    //     var pageKey = "page" + this.state.currentPage;
-    //     for (let i = 0; i < pageData[pageKey].choiceCount; i++) {
-    //         console.log(pageKey);
-    //     }
-    // }
-    // fillPage(data) {}
-    // componentWillMount() {
-    //     this.setState({
-    //         pagePath: [...this.state.pagePath,
-    //             <
-    //                 Page
-    //                 key={this.state.pagePath.length}
-    //                 index={this.state.pagePath.length}
-    //                 flipBuffer={this.flipBuffer}
-    //             />]
-    //     });
-    //     setTimeout(() => (
-    //         this.setState({
-    //             pagePath: [...this.state.pagePath,
-    //                 <
-    //                     Page
-    //                     key={this.state.pagePath.length}
-    //                     index={this.state.pagePath.length}
-    //                     flipBuffer={this.flipBuffer}
-    //                 />]
-    //         })), 0);
-    // }
-    flipPage(index) {
-        // makes current page disappear and next page appear
+    showPage(index) {
+        console.log("show page of index " + index);
         var pagePath = this.state.pagePath;
-        console.log(this.state.pagePath);
-        // this.setState({
-        //     pagePath: pagePath
-        // });
+        document.querySelectorAll(".page")[index].classList.remove("hidden");
     }
-    changePage(index) {
-        // displays a new page and loads the next page
-        this.flipPage(index);
-        this.loadPage(index + 1);
+    changePage(index, direction) {
+        // displays a new page (index) and loads the next page (index + 1)
+        if (pageData["page" + (index + 1)] && direction === 1 && this.state.pagePath.length <= (index + 1)) {
+            console.log("flip down");
+            this.showPage(index);
+            this.loadPage(index + 1);
+        } else if (pageData["page" + (index)]) {
+            console.log("flip down last page");
+            this.showPage(index);
+        } else if (pageData["page" + (index)]) {
+            this.flipPage(index);
+            console.log("flip up");
+        }
     }
     fetchPageData(index) {
         // fetch page data with AJAX
         return pageData["page" + index];
     }
-    createPageComponent() {
+    createPageComponent(index) {
         // push a JSX block in pagePath
         var newPage =
             <
                 Page
-                key={this.state.pagePath.length}
-                index={this.state.pagePath.length}
+                key={index}
+                index={index}
                 changePage={this.changePage}
+                showPage={this.showPage}
+                imgSrc={pageData["page" + index].imgSrc}
                 classes={"page"}
             />;
         const pagePath = [...this.state.pagePath, newPage];
@@ -95,18 +55,17 @@ class PageSystem extends Component {
             pagePath: pagePath
         });
     }
-    fillPageComponent(index) {
-        // fill the page component with all corresponding informations from pageData at index 'index'
-    }
     loadPage(index) {
         // loads page of index 'index'
         const pageData = this.fetchPageData(index); // TODO later with AJAX
-        this.createPageComponent();
-        this.fillPageComponent(index);
+        this.createPageComponent(index );
     }
     componentWillMount() {
         this.loadPage(this.state.currentPage);
         setTimeout(() => (this.loadPage(this.state.currentPage + 1)), 0);
+    }
+    componentDidMount() {
+        document.querySelector(".page").classList.remove("hidden");
     }
     render() {
         return (

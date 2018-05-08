@@ -4,15 +4,23 @@ const format = {
 
 const pageData = {
     page0: {
-        imgUrl: "img/test1.jpg",
+        imgSrc: "img/test1.jpg",
         choiceCount: 1
     },
     page1: {
-        imgUrl: "img/test2.jpg",
+        imgSrc: "img/test2.jpg",
         choiceCount: 1
     },
     page2: {
-        imgUrl: "img/test3.jpg",
+        imgSrc: "img/test3.jpg",
+        choiceCount: 1
+    },
+    page3: {
+        imgSrc: "img/test4.jpg",
+        choiceCount: 1
+    },
+    page4: {
+        imgSrc: "img/test5.jpg",
         choiceCount: 1
     }
 }
