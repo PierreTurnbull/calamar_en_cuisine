@@ -15,8 +15,9 @@ how is data structured:
             - index of its path
 
 data fetched:
-- imgUrl
-- infos concerning surrounding pages: is there one left, right, up, down?
+- list:
+    - imgUrl
+    - infos concerning surrounding pages?
 
 what to load:
 - all pages surrounding the displayed page are loaded
@@ -26,7 +27,7 @@ how to load:
     - img URL
     - index of path
     - index of page in path
-    - surrounding pages info (list of 4 booleans: is there one left, right, up, down?)
+    - surrounding pages info
     - coordinates (path index + page index) of the pages to reach when
         going on the left or right
 */
@@ -35,7 +36,11 @@ class PageSystem extends Component {
     constructor(props) {
         super(props);
     }
+    fetchData() {
+        console.log(data);
+    }
     render() {
+        this.fetchData();
         return (
             <div className="PageSystem_container">page</div>
         );
