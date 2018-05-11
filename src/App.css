@@ -37,32 +37,18 @@ body {
     top: 0;
 }
 
-.page:first-child {
-    background-color: #DFD;
-    /* display: block;
-    opacity: 1; */
+.pageBtnLeft {
+    top: 0;
+    bottom: 0;
+    right: auto;
+}
+
+.pageBtnRight {
+    top: 0;
+    bottom: 0;
+    left: auto;
 }
 
 .hidden {
     display: none;
-}
-
-.pageLoader {
-    width: 100vw;
-    height: 100vh;
-    background-size: contain 100px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 15px solid red;
-    box-sizing: border-box;
-}
-
-.pageSide {
-    width: 100vw;
-    height: 100vh;
-    background-size: contain 100px;
-    background-repeat: no-repeat;
-    background-position: center top;
-    border: 15px solid yellow;
-    box-sizing: border-box;
 }

@@ -2,27 +2,50 @@ const format = {
     maxChoices: 2
 };
 
-const pageData = {
-    page0: {
-        imgSrc: "img/test1.jpg",
-        choiceCount: 1
+const data = {
+    pageList0: {
+        page0: {
+            position: 0,
+            imgUrl: "img/test1.jpg"
+        },
+        page1: {
+            position: -1,
+            imgUrl: "img/test1_2.jpg"
+        },
+        page2: {
+            position: 1,
+            imgUrl: "img/test1_3.jpg"
+        },
+        isLastPage: false
     },
-    page1: {
-        imgSrc: "img/test2.jpg",
-        choiceCount: 1
+    pageList1: {
+        page0: {
+            position: 0,
+            imgUrl: "img/test2.jpg"
+        },
+        isLastPage: false
     },
-    page2: {
-        imgSrc: "img/test3.jpg",
-        choiceCount: 1
+    pageList2: {
+        page0: {
+            position: 0,
+            imgUrl: "img/test3.jpg"
+        },
+        isLastPage: false
     },
-    page3: {
-        imgSrc: "img/test4.jpg",
-        choiceCount: 1
+    pageList3: {
+        page0: {
+            position: 0,
+            imgUrl: "img/test4.jpg"
+        },
+        isLastPage: false
     },
-    page4: {
-        imgSrc: "img/test5.jpg",
-        choiceCount: 1
+    pageList4: {
+        page0: {
+            position: 0,
+            imgUrl: "img/test5.jpg"
+        },
+        isLastPage: true
     }
 }
 
-export { format, pageData };
+export { format, data };

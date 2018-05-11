@@ -1,35 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
-import { pageData } from './TestData.js';
+import { data } from './TestData.js';
 
 class Page extends Component {
     constructor(props) {
         super();
         this.handleScroll = this.handleScroll.bind(this);
-        this.hidePage = this.hidePage.bind(this);
     }
     handleScroll() {
         // console.log(window.pageYOffset);
     }
-    hidePage(direction) {
-        if (pageData["page" + (this.props.index + direction) ]) {
-            console.log("hide page of index " + this.props.index);
-            document.querySelectorAll(".page")[this.props.index].classList.add("hidden");
-            console.log(document.querySelectorAll(".page")[this.props.index].classList);
-        }
-    }
     componentDidMount() {
-        window.addEventListener("mousewheel", this.handleScroll);
-        document.querySelectorAll(".pageBtnDown")[this.props.index].addEventListener("click", () => {
-            this.props.changePage(this.props.index + 1, 1);
-            this.hidePage(1);
-        });
-        document.querySelectorAll(".pageBtnUp")[this.props.index].addEventListener("click", () => {
-            this.props.changePage(this.props.index - 1, -1);
-            this.hidePage(-1);
-        });
+        // window.addEventListener("mousewheel", this.handleScroll);
+        // document.querySelectorAll(".pageBtnDown")[this.props.index].addEventListener("click", () => {
+        //     this.props.changePage(this.props.index, 1);
+        // });
+        // document.querySelectorAll(".pageBtnUp")[this.props.index].addEventListener("click", () => {
+        //     this.props.changePage(this.props.index, -1);
+        // });
     }
     render() {
+        // TODO: make the same with upBtn and downBtn
+        var leftBtn     = "";
+        var rightBtn    = "";
+        var upBtn       = "";
+        var downBtn     = "";
+        if (this.props.canGoLeft) {
+            leftBtn = <button className="pageBtn pageBtnLeft">LEFT</button>;
+        }
+        if (this.props.canGoRight) {
+            rightBtn = <button className="pageBtn pageBtnRight">RIGHT</button>;
+        }
+        if (this.props.canGoUp) {
+            upBtn = <button className="pageBtn pageBtnUp">UP</button>;
+        }
+        if (this.props.canGoDown) {
+            downBtn = <button className="pageBtn pageBtnDown" onClick={() => (
+                this.props.changePage(this.props.listIndex, 1, this.props.isLastPage)
+            )}>DOWN</button>;
+        }
         return (
             <
                 section
@@ -40,9 +49,10 @@ class Page extends Component {
                     }
                 }
             >
-                <button className="pageBtn pageBtnUp">UP</button>
-                page
-                <button className="pageBtn pageBtnDown">DOWN</button>
+                {leftBtn}
+                {rightBtn}
+                {upBtn}
+                {downBtn}
             </section>
         );
     }
