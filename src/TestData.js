@@ -46,11 +46,21 @@ const data = {
             neighbours: [
                 {
                     path: 0,
-                    page: 1
+                    page: 1,
+                    style: {
+                        top: "10%",
+                        left: "10%"
+                    },
+                    text: "page1path0"
                 },
                 {
                     path: 1,
-                    page: 0
+                    page: 0,
+                    style: {
+                        bottom: "25%",
+                        right: "15%"
+                    },
+                    text: "page0path1"
                 }
             ]
         },
@@ -59,11 +69,21 @@ const data = {
             neighbours: [
                 {
                     path: 0,
-                    page: 0
+                    page: 0,
+                    style: {
+                        top: "20%",
+                        left: "20%"
+                    },
+                    text: "page0path0"
                 },
                 {
                     path: 0,
-                    page: 2
+                    page: 2,
+                    style: {
+                        top: "20%",
+                        left: "50%"
+                    },
+                    text: "page2path0"
                 }
             ]
         },
@@ -72,11 +92,21 @@ const data = {
             neighbours: [
                 {
                     path: 0,
-                    page: 1
+                    page: 1,
+                    style: {
+                        top: "20%",
+                        left: "20%"
+                    },
+                    text: "page1path0"
                 },
                 {
                     path: 0,
-                    page: 3
+                    page: 3,
+                    style: {
+                        top: "50%",
+                        left: "20%"
+                    },
+                    text: "page3path0"
                 }
             ]
         },
@@ -85,11 +115,21 @@ const data = {
             neighbours: [
                 {
                     path: 0,
-                    page: 2
+                    page: 2,
+                    style: {
+                        top: "30%",
+                        left: "30%"
+                    },
+                    text: "page2path0"
                 },
                 {
                     path: 0,
-                    page: 4
+                    page: 4,
+                    style: {
+                        top: "50%",
+                        left: "50%"
+                    },
+                    text: "page4path0"
                 }
             ]
         },
@@ -98,7 +138,12 @@ const data = {
             neighbours: [
                 {
                     path: 0,
-                    page: 3
+                    page: 3,
+                    style: {
+                        top: "20%",
+                        left: "20%"
+                    },
+                    text: "page3path0"
                 }
             ]
         }
@@ -109,7 +154,12 @@ const data = {
             neighbours: [
                 {
                     path: 1,
-                    page: 1
+                    page: 1,
+                    style: {
+                        top: "0%",
+                        left: "0%"
+                    },
+                    text: "page1path1"
                 }
             ]
         },
@@ -118,11 +168,21 @@ const data = {
             neighbours: [
                 {
                     path: 1,
-                    page: 0
+                    page: 0,
+                    style: {
+                        top: "20%",
+                        left: "20%"
+                    },
+                    text: "page0path1"
                 },
                 {
                     path: 1,
-                    page: 2
+                    page: 2,
+                    style: {
+                        top: "70%",
+                        left: "60%"
+                    },
+                    text: "page2path1"
                 }
             ]
         },
@@ -131,7 +191,12 @@ const data = {
             neighbours: [
                 {
                     path: 1,
-                    page: 1
+                    page: 1,
+                    style: {
+                        top: "20%",
+                        left: "20%"
+                    },
+                    text: "page1path1"
                 }
             ]
         }
@@ -142,7 +207,12 @@ const data = {
             neighbours: [
                 {
                     path: 2,
-                    page: 1
+                    page: 1,
+                    style: {
+                        top: "20%",
+                        left: "20%"
+                    },
+                    text: "page1path2"
                 }
             ]
         },
@@ -151,11 +221,21 @@ const data = {
             neighbours: [
                 {
                     path: 1,
-                    page: 0
+                    page: 0,
+                    style: {
+                        top: "20%",
+                        left: "20%"
+                    },
+                    text: "page0path1"
                 },
                 {
                     path: 1,
-                    page: 2
+                    page: 2,
+                    style: {
+                        top: "35%",
+                        left: "35%"
+                    },
+                    text: "page2path1"
                 }
             ]
         },
@@ -164,7 +244,12 @@ const data = {
             neighbours: [
                 {
                     path: 2,
-                    page: 1
+                    page: 1,
+                    style: {
+                        top: "0%",
+                        left: "20%"
+                    },
+                    text: "page1path2"
                 }
             ]
         }

@@ -20,39 +20,28 @@ class Page extends Component {
         // });
     }
     render() {
-        // TODO: make the same with upBtn and downBtn
-        var leftBtn     = "";
-        var rightBtn    = "";
-        var upBtn       = "";
-        var downBtn     = "";
-        if (this.props.canGoLeft) {
-            leftBtn = <button className="pageBtn pageBtnLeft">LEFT</button>;
-        }
-        if (this.props.canGoRight) {
-            rightBtn = <button className="pageBtn pageBtnRight">RIGHT</button>;
-        }
-        if (this.props.canGoUp) {
-            upBtn = <button className="pageBtn pageBtnUp">UP</button>;
-        }
-        if (this.props.canGoDown) {
-            downBtn = <button className="pageBtn pageBtnDown" onClick={() => (
-                this.props.changePage(this.props.listIndex, 1, this.props.isLastPage)
-            )}>DOWN</button>;
-        }
         return (
             <
                 section
-                className={"page hidden"}
+                className={this.props.data.classes.join(" ")}
                 style={
                     {
-                        backgroundImage: "url('" + this.props.imgSrc + "')"
+                        backgroundImage: "url('" + this.props.data.imgUrl + "')"
                     }
                 }
             >
-                {leftBtn}
-                {rightBtn}
-                {upBtn}
-                {downBtn}
+                {
+                    this.props.data.neighbours.map((item, key) => (
+                        <
+                            button
+                            className="pageBtn"
+                            key={key}
+                            style={item.style}
+                        >
+                            {item.text}
+                        </button>
+                    ))
+                }
             </section>
         );
     }

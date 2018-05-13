@@ -22,31 +22,8 @@ body {
 
 .pageBtn {
     position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
     height: 50px;
-    width: 75px;
-}
-
-.pageBtnDown {
-    bottom: 0;
-}
-
-.pageBtnUp {
-    top: 0;
-}
-
-.pageBtnLeft {
-    top: 0;
-    bottom: 0;
-    right: auto;
-}
-
-.pageBtnRight {
-    top: 0;
-    bottom: 0;
-    left: auto;
+    width: 50px;
 }
 
 .hidden {
