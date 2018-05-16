@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Page } from './Page.js';
-import { format, data } from './TestData.js';
+import { data } from './TestData.js';
 
 /*
 how is data structured:
@@ -49,24 +49,32 @@ how to create a page:
 - add this data to the PageSystem component's state
 
 how to change page:
-- if it isn't already loaded:
-    - create a page
 - hide the currently displayed page
 - display the new page
 - load all pages surrounding the created page that are not loaded yet
+- update PageSystem's state to reflect these changes
+    - modify currentPage
+    - modify pagePath
+
+how to show/hide a page:
+- data corresponding to the classes of a page is modified in PageSystem's state
 
 how to start the app:
 - load the first page
 - display the first page
 - load all pages surrounding the first page
+
+pageData in PageSystem's state contains:
+- the list of all pages (array)
+    - page (object)
 */
 
 class PageSystem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pagePath: {},
-            pageCompList: [],
+            // data of all loaded components
+            pagePath: [],
             currentPage: {
                 path: 0,
                 page: 0
@@ -76,75 +84,98 @@ class PageSystem extends Component {
         this.fetchData  = this.fetchData.bind(this);
         this.showPage   = this.showPage.bind(this);
         this.hidePage   = this.hidePage.bind(this);
+        this.changePage = this.changePage.bind(this);
     }
     // TODO: factorize showPage and hidePage
     showPage(pathIndex, pageIndex) {
-        var pagePath = this.state.pagePath;
-        var classes = pagePath["path" + pathIndex + "page" + pageIndex].classes;
-        if (classes.indexOf("hidden") !== -1) {
-            classes.splice(classes.indexOf("hidden"), 1);
-        }
-        pagePath["path" + pathIndex + "page" + pageIndex].classes = classes;
-        this.setState({
-            pagePath: pagePath
-        });
+        // var pagePath = this.state.pagePath;
+        // var classes = pagePath["path" + pathIndex + "page" + pageIndex].classes;
+        // if (classes.indexOf("hidden") !== -1) {
+        //     classes.splice(classes.indexOf("hidden"), 1);
+        // }
+        // pagePath["path" + pathIndex + "page" + pageIndex].classes = classes;
+        // this.setState({
+        //     pagePath: pagePath
+        // });
     }
     hidePage(pathIndex, pageIndex) {
-        var pagePath = this.state.pagePath;
-        var classes = pagePath["path" + pathIndex + "page" + pageIndex].classes;
-        if (classes.indexOf("hidden") === -1) {
-            classes.push("hidden");
-        }
-        pagePath["path" + pathIndex + "page" + pageIndex].classes = classes;
-        this.setState({
-            pagePath: pagePath
-        });
+        // var pagePath = this.state.pagePath;
+        // var classes = pagePath["path" + pathIndex + "page" + pageIndex].classes;
+        // if (classes.indexOf("hidden") === -1) {
+        //     classes.push("hidden");
+        // }
+        // pagePath["path" + pathIndex + "page" + pageIndex].classes = classes;
+        // this.setState({
+        //     pagePath: pagePath
+        // });
     }
-    fetchData(pathIndex, pageIndex) {
-        // fetch a page's data with AJAX // TODO AJAX
-        var pageData = data["path" + pathIndex]["page" + pageIndex];
+    changePage(pathIndex, pageIndex) {
+        // TODO:
+        //  - hide current page
+        //  - show page of pathIndex and pageIndex
+        //  - load all neighbour of the newly displayed page
+        //  - update PageSystem's state to reflect these changes
+        //      - modify currentPage
+        //      - modify pagePath
+
+        // this.setState({
+        //     currentPage: {
+        //         path: pathIndex,
+        //         page: pageIndex
+        //     }
+        // });
+        // // hide the current page
+        // this.hidePage(this.state.currentPage.path, this.state.currentPage.page);
+        // // show the selected page
+        // this.showPage(pathIndex, pageIndex);
+        // // load all neighbour pages of the selected page
+        // for (let i = 0; this.state.pagePath["path" + pathIndex + "page" + pageIndex].neighbours[i]; i++) {
+        //     let neighbour = this.state.pagePath["path" + pathIndex + "page" + pageIndex].neighbours[i];
+        //     this.loadPage(neighbour.path, neighbour.page);
+        // }
+        // // update PageSystem's current page informations
+        // this.setState({
+        //     currentPage: {
+        //         path: pathIndex,
+        //         page: pageIndex
+        //     }
+        // }, () => (setTimeout(() => (this.forceUpdate()), 1000)));
+    }
+    addGenericData(pageData, pathIndex, pageIndex) {
+        // add all generic data that didn't need to be sent with AJAX (fast)
         pageData.classes = [
             "page",
             "hidden"
         ];
+        pageData.pathIndex = pathIndex;
+        pageData.pageIndex = pageIndex;
+        pageData.JSX = (
+            <
+                Page
+                key={this.state.pagePath.length}
+                data={pageData}
+                changePage={this.changePage}
+            />
+        );
+    }
+    fetchData(pathIndex, pageIndex) {
+        // fetch a page's data with AJAX (potentially slow) // TODO AJAX
+        var pageData = data["path" + pathIndex]["page" + pageIndex];
         return pageData;
     }
-    changePage(pathIndex, pageIndex) {
-        this.setState({
-            currentPage: {
-                path: pathIndex,
-                page: pageIndex
-            }
-        });
-        // hide the current page
-        // show the selected page
-        // load all neighbour pages of the selected page
-        for (let i = 0; this.state.pagePath["path" + pathIndex + "page" + pageIndex].neighbours[i]; i++) {
-            let neighbour = this.state.pagePath["path" + pathIndex + "page" + pageIndex].neighbours[i];
-            this.loadPage(neighbour.path, neighbour.page);
-        }
-    }
     loadPage(pathIndex, pageIndex) {
-        // load a page if it is not loaded yet
-        const pageData = this.fetchData(pathIndex, pageIndex);
-        var pagePath = this.state.pagePath;
-        if (Object.keys(pagePath).indexOf("path" + pathIndex + "page" + pageIndex) === -1) {
-            pagePath["path" + pathIndex + "page" + pageIndex] = pageData;
-            console.log("page " + pageIndex + " in path " + pathIndex + " loaded", pagePath);
-            var pageCompList = this.state.pageCompList;
+        // prepare new pagePath's value before modifying PageSystem's state
+        var pagePath    = this.state.pagePath;
+        // retrieve the requested page's data
+        const pageData  = this.fetchData(pathIndex, pageIndex);
+        // if the page is not loaded yet, load it
+        if (!(this.state.pagePath.find(item => item.pageIndex === pageIndex) &&
+            this.state.pagePath.find(item => item.pathIndex === pathIndex))) {
+            this.addGenericData(pageData, pathIndex, pageIndex);
+            pagePath.push(pageData);
+            console.log("page " + pageData.pageIndex + " in path " + pageData.pathIndex + " loaded", pagePath);
             this.setState({
                 pagePath: pagePath
-            }, () => {
-                pageCompList.push(
-                    <
-                        Page
-                        key={this.state.pageCompList.length}
-                        data={pageData}
-                    />
-                );
-                this.setState({
-                    pageCompList: pageCompList
-                });
             });
         } else {
             console.log("Couldn't load page " + pageIndex + " of path " + pathIndex + ": this page is already loaded");
@@ -153,12 +184,11 @@ class PageSystem extends Component {
     componentWillMount() {
         this.loadPage(0, 0);
         this.changePage(0, 0);
-        this.showPage(0, 0);
     }
     render() {
         return (
             <div className="PageSystem_container">
-                {this.state.pageCompList}
+                {this.state.pagePath.map((item) => (item.JSX))}
             </div>
         );
     }

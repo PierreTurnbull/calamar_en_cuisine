@@ -1,18 +1,14 @@
-const format = {
-    maxChoices: 2
-};
-
 /*
 data structure:
 
 const data = {
-    path: {
-        page: {
+    pathIndex: {
+        pageIndex: {
             imgUlr: string,
             neighbours: [
                 {
-                    path: int
-                    page: int
+                    pathIndex: int
+                    pageIndex: int
                 }
             ]
         }
@@ -35,7 +31,9 @@ page = {
 }
 neighbours = {
     path,
-    page
+    page,
+    style,
+    textContent
 }
 */
 
@@ -45,22 +43,22 @@ const data = {
             imgUrl: "img/test1.jpg",
             neighbours: [
                 {
-                    path: 0,
-                    page: 1,
+                    pathIndex: 0,
+                    pageIndex: 1,
                     style: {
                         top: "10%",
                         left: "10%"
                     },
-                    text: "page1path0"
+                    textContent: "page1path0"
                 },
                 {
-                    path: 1,
-                    page: 0,
+                    pathIndex: 1,
+                    pageIndex: 0,
                     style: {
                         bottom: "25%",
                         right: "15%"
                     },
-                    text: "page0path1"
+                    textContent: "page0path1"
                 }
             ]
         },
@@ -68,22 +66,22 @@ const data = {
             imgUrl: "img/test2.jpg",
             neighbours: [
                 {
-                    path: 0,
-                    page: 0,
+                    pathIndex: 0,
+                    pageIndex: 0,
                     style: {
                         top: "20%",
                         left: "20%"
                     },
-                    text: "page0path0"
+                    textContent: "page0path0"
                 },
                 {
-                    path: 0,
-                    page: 2,
+                    pathIndex: 0,
+                    pageIndex: 2,
                     style: {
                         top: "20%",
                         left: "50%"
                     },
-                    text: "page2path0"
+                    textContent: "page2path0"
                 }
             ]
         },
@@ -91,22 +89,22 @@ const data = {
             imgUrl: "img/test3.jpg",
             neighbours: [
                 {
-                    path: 0,
-                    page: 1,
+                    pathIndex: 0,
+                    pageIndex: 1,
                     style: {
                         top: "20%",
                         left: "20%"
                     },
-                    text: "page1path0"
+                    textContent: "page1path0"
                 },
                 {
-                    path: 0,
-                    page: 3,
+                    pathIndex: 0,
+                    pageIndex: 3,
                     style: {
                         top: "50%",
                         left: "20%"
                     },
-                    text: "page3path0"
+                    textContent: "page3path0"
                 }
             ]
         },
@@ -114,22 +112,22 @@ const data = {
             imgUrl: "img/test4.jpg",
             neighbours: [
                 {
-                    path: 0,
-                    page: 2,
+                    pathIndex: 0,
+                    pageIndex: 2,
                     style: {
                         top: "30%",
                         left: "30%"
                     },
-                    text: "page2path0"
+                    textContent: "page2path0"
                 },
                 {
-                    path: 0,
-                    page: 4,
+                    pathIndex: 0,
+                    pageIndex: 4,
                     style: {
                         top: "50%",
                         left: "50%"
                     },
-                    text: "page4path0"
+                    textContent: "page4path0"
                 }
             ]
         },
@@ -137,13 +135,13 @@ const data = {
             imgUrl: "img/test5.jpg",
             neighbours: [
                 {
-                    path: 0,
-                    page: 3,
+                    pathIndex: 0,
+                    pageIndex: 3,
                     style: {
                         top: "20%",
                         left: "20%"
                     },
-                    text: "page3path0"
+                    textContent: "page3path0"
                 }
             ]
         }
@@ -153,13 +151,13 @@ const data = {
             imgUrl: "img/test6.jpg",
             neighbours: [
                 {
-                    path: 1,
-                    page: 1,
+                    pathIndex: 1,
+                    pageIndex: 1,
                     style: {
                         top: "0%",
                         left: "0%"
                     },
-                    text: "page1path1"
+                    textContent: "page1path1"
                 }
             ]
         },
@@ -167,22 +165,22 @@ const data = {
             imgUrl: "img/test7.jpg",
             neighbours: [
                 {
-                    path: 1,
-                    page: 0,
+                    pathIndex: 1,
+                    pageIndex: 0,
                     style: {
                         top: "20%",
                         left: "20%"
                     },
-                    text: "page0path1"
+                    textContent: "page0path1"
                 },
                 {
-                    path: 1,
-                    page: 2,
+                    pathIndex: 1,
+                    pageIndex: 2,
                     style: {
                         top: "70%",
                         left: "60%"
                     },
-                    text: "page2path1"
+                    textContent: "page2path1"
                 }
             ]
         },
@@ -190,13 +188,13 @@ const data = {
             imgUrl: "img/test8.jpg",
             neighbours: [
                 {
-                    path: 1,
-                    page: 1,
+                    pathIndex: 1,
+                    pageIndex: 1,
                     style: {
                         top: "20%",
                         left: "20%"
                     },
-                    text: "page1path1"
+                    textContent: "page1path1"
                 }
             ]
         }
@@ -206,13 +204,13 @@ const data = {
             imgUrl: "img/test9.jpg",
             neighbours: [
                 {
-                    path: 2,
-                    page: 1,
+                    pathIndex: 2,
+                    pageIndex: 1,
                     style: {
                         top: "20%",
                         left: "20%"
                     },
-                    text: "page1path2"
+                    textContent: "page1path2"
                 }
             ]
         },
@@ -220,22 +218,22 @@ const data = {
             imgUrl: "img/test10.jpg",
             neighbours: [
                 {
-                    path: 1,
-                    page: 0,
+                    pathIndex: 1,
+                    pageIndex: 0,
                     style: {
                         top: "20%",
                         left: "20%"
                     },
-                    text: "page0path1"
+                    textContent: "page0path1"
                 },
                 {
-                    path: 1,
-                    page: 2,
+                    pathIndex: 1,
+                    pageIndex: 2,
                     style: {
                         top: "35%",
                         left: "35%"
                     },
-                    text: "page2path1"
+                    textContent: "page2path1"
                 }
             ]
         },
@@ -243,13 +241,13 @@ const data = {
             imgUrl: "img/test11.jpg",
             neighbours: [
                 {
-                    path: 2,
-                    page: 1,
+                    pathIndex: 2,
+                    pageIndex: 1,
                     style: {
                         top: "0%",
                         left: "20%"
                     },
-                    text: "page1path2"
+                    textContent: "page1path2"
                 }
             ]
         }
@@ -302,4 +300,4 @@ const data = {
 //     }
 // }
 
-export { format, data };
+export { data };

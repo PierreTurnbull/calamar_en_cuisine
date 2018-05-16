@@ -19,10 +19,14 @@ class Page extends Component {
         //     this.props.changePage(this.props.index, -1);
         // });
     }
+    componentWillUpdate() {
+        console.log("new props");
+    }
     render() {
         return (
+            // display a div corresponding to the page
             <
-                section
+                div
                 className={this.props.data.classes.join(" ")}
                 style={
                     {
@@ -30,19 +34,21 @@ class Page extends Component {
                     }
                 }
             >
+            // for each neighbour, display a button that enable to change page
                 {
-                    this.props.data.neighbours.map((item, key) => (
+                    this.props.data.neighbours.map((item, index) => (
                         <
                             button
                             className="pageBtn"
-                            key={key}
+                            key={index}
                             style={item.style}
+                            onClick={() => (this.props.changePage(item.pathIndex, item.pageIndex))}
                         >
                             {item.text}
                         </button>
                     ))
                 }
-            </section>
+            </div>
         );
     }
 }
