@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { data } from './TestData.js';
 
 class Page extends Component {
     constructor(props) {
@@ -34,7 +33,8 @@ class Page extends Component {
                     }
                 }
             >
-            // for each neighbour, display a button that enable to change page
+            {/* for each neighbour, display a button that enables to change page
+                from the current page to the page corresponding to the neighbour */}
                 {
                     this.props.data.neighbours.map((item, index) => (
                         <
@@ -44,7 +44,7 @@ class Page extends Component {
                             style={item.style}
                             onClick={() => (this.props.changePage(item.pathIndex, item.pageIndex))}
                         >
-                            {item.text}
+                            {item.textContent}
                         </button>
                     ))
                 }
