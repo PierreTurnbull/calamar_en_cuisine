@@ -67,9 +67,19 @@ class PageSystem extends Component {
             }
         };
         this.loadStory      = this.loadStory.bind(this);
-        this.fetchPageData  = this.fetchPageData.bind(this);
+        this.fetchData      = this.fetchData.bind(this);
+        this.showPage       = this.showPage.bind(this);
+        this.hidePage       = this.hidePage.bind(this);
+        this.changePage     = this.changePage.bind(this);
     }
-    fetchPageData(pathIndex, pageIndex) {
+    hidePage(index) {
+        console.log("show", index, this.state.pageList[index]);
+    }
+    showPage(index) {
+        console.log("show", index, this.state.pageList[index]);
+    }
+    changePage() {}
+    fetchData() {
         var pageList = [];
         fetch("http://localhost:3000/pageData.json", {
             method: "get"
@@ -82,23 +92,38 @@ class PageSystem extends Component {
             for (var path in data) {
                 for (var page in data[path]) {
                     let pageData = data[path][page];
-                    pageData.index = i++;
                     pageData.classes = [
                         "page",
                         "hidden"
                     ];
-                    pageData.pathIndex = path.replace("path", "");
-                    pageData.pageIndex = page.replace("page", "");
+                    pageData.pathIndex  = path.replace("path", "");
+                    pageData.pageIndex  = page.replace("page", "");
+                    pageData.index = i++;
                     pageList.push(pageData);
                 }
             }
             this.setState({
                 pageList: pageList
-            }, () => (console.log(this.state.pageList)));
+            }, () => {
+                var pageList    = JSON.parse(JSON.stringify(this.state.pageList));
+                var pageListTmp = JSON.parse(JSON.stringify(this.state.pageList));
+                for (let i = 0; i < this.state.pageList.length; i++) {
+                    pageListTmp[i].JSX = (
+                        <
+                            Page
+                            key={i}
+                            pageData={pageList[i]}
+                        />
+                    );
+                }
+                this.setState({
+                    pageList: pageListTmp
+                }, () => (console.log("ok", this.state.pageList)));
+            });//, () => (this.showPage(0)));
         });
     }
-    loadStory(pathIndex, pageIndex) {
-        const pageData = this.fetchPageData(pathIndex, pageIndex);
+    loadStory() {
+        this.fetchData();
     }
     componentWillMount() {
         this.loadStory();
