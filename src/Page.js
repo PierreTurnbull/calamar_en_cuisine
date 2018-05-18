@@ -26,17 +26,17 @@ class Page extends Component {
             // display a div corresponding to the page
             <
                 div
-                className={this.props.data.classes.join(" ")}
+                className={this.props.pageData.classes.join(" ")}
                 style={
                     {
-                        backgroundImage: "url('" + this.props.data.imgUrl + "')"
+                        backgroundImage: "url('" + this.props.pageData.imgUrl + "')"
                     }
                 }
             >
             {/* for each neighbour, display a button that enables to change page
                 from the current page to the page corresponding to the neighbour */}
                 {
-                    this.props.data.neighbours.map((item, index) => (
+                    this.props.pageData.neighbours.map((item, index) => (
                         <
                             button
                             className="pageBtn"

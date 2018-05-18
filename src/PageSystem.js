@@ -73,12 +73,22 @@ class PageSystem extends Component {
         this.changePage     = this.changePage.bind(this);
     }
     hidePage(index) {
-        console.log("show", index, this.state.pageList[index]);
+        console.log("show", index);
     }
     showPage(index) {
-        console.log("show", index, this.state.pageList[index]);
+        console.log("show", index);
+        var pageList    = JSON.parse(JSON.stringify(this.state.pageList));
+        var pageClasses = pageList[index].classes;
+        pageClasses = pageClasses.filter((item) => (item !== "hidden"));
+        pageList[index].classes = pageClasses;
+        console.log(pageList);
+        this.setState({
+            pageList
+        }, () => (console.log(this.state.pageList)));
     }
-    changePage() {}
+    changePage() {
+        console.log("change page");
+    }
     fetchData() {
         var pageList = [];
         fetch("http://localhost:3000/pageData.json", {
@@ -96,8 +106,8 @@ class PageSystem extends Component {
                         "page",
                         "hidden"
                     ];
-                    pageData.pathIndex  = path.replace("path", "");
-                    pageData.pageIndex  = page.replace("page", "");
+                    pageData.pathIndex  = Number(path.replace("path", ""));
+                    pageData.pageIndex  = Number(page.replace("page", ""));
                     pageData.index = i++;
                     pageList.push(pageData);
                 }
@@ -105,21 +115,8 @@ class PageSystem extends Component {
             this.setState({
                 pageList: pageList
             }, () => {
-                var pageList    = JSON.parse(JSON.stringify(this.state.pageList));
-                var pageListTmp = JSON.parse(JSON.stringify(this.state.pageList));
-                for (let i = 0; i < this.state.pageList.length; i++) {
-                    pageListTmp[i].JSX = (
-                        <
-                            Page
-                            key={i}
-                            pageData={pageList[i]}
-                        />
-                    );
-                }
-                this.setState({
-                    pageList: pageListTmp
-                }, () => (console.log("ok", this.state.pageList)));
-            });//, () => (this.showPage(0)));
+                this.showPage(0);
+            });
         });
     }
     loadStory() {
@@ -129,9 +126,21 @@ class PageSystem extends Component {
         this.loadStory();
     }
     render() {
-        const pageList = JSON.parse(JSON.stringify(this.state.pageList));
         return(
-            <div className="PageSystem_container">ok</div>
+            <div className="PageSystem_container">
+                {
+                    this.state.pageList.map((item) => {
+                        return (
+                            <
+                                Page
+                                key={item.index}
+                                pageData={item}
+                                changePage={this.changePage}
+                            />
+                        );
+                    }
+                )}
+            </div>
         );
     }
 }
