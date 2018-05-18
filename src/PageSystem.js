@@ -73,21 +73,37 @@ class PageSystem extends Component {
         this.changePage     = this.changePage.bind(this);
     }
     hidePage(index) {
-        console.log("show", index);
+        console.log("hide", index);
+        var pageList    = JSON.parse(JSON.stringify(this.state.pageList));
+        var pageClasses = pageList[index].classes;
+        if (pageClasses.indexOf("hidden") !== -1) {
+            console.log("Error: page of index " + index + " is already hidden.");
+            return;
+        }
+        pageClasses.push("hidden");
+        this.setState({
+            pageList
+        }, () => (console.log(this.state.pageList)));
     }
     showPage(index) {
         console.log("show", index);
         var pageList    = JSON.parse(JSON.stringify(this.state.pageList));
         var pageClasses = pageList[index].classes;
+        if (pageClasses.indexOf("hidden") === -1) {
+            console.log("Error: page of index " + index + " is already shown.");
+            return;
+        }
         pageClasses = pageClasses.filter((item) => (item !== "hidden"));
         pageList[index].classes = pageClasses;
-        console.log(pageList);
         this.setState({
             pageList
         }, () => (console.log(this.state.pageList)));
     }
     changePage() {
-        console.log("change page");
+        this.hidePage(0);
+        setTimeout(() => (this.showPage(1)), 1000); // TODO fix the interference
+                                                    // between both hidePage and
+                                                    // showPage setState calls
     }
     fetchData() {
         var pageList = [];
