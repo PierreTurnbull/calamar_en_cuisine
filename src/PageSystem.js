@@ -72,37 +72,37 @@ class PageSystem extends Component {
         this.hidePage       = this.hidePage.bind(this);
         this.changePage     = this.changePage.bind(this);
     }
-    hidePage(current, next) {
-        console.log("hide", current);
+    hidePage(currentIndex, nextIndex) {
+        console.log("hide", currentIndex);
         var pageList    = JSON.parse(JSON.stringify(this.state.pageList));
-        var pageClasses = pageList.find((item) => (item.pathIndex === current[0] && item.pageIndex === current[1])).classes;
+        var pageClasses = pageList.find((item) => (item.index === currentIndex)).classes;
         if (pageClasses.indexOf("hidden") !== -1) {
-            console.log("Error: page " + current[1] + " of path " + current[0] + " is already hidden.");
+            console.log("Error: page " + currentIndex + " is already hidden.");
             return;
         }
         pageClasses.push("hidden");
         this.setState({
             pageList
         }, () => {
-            this.showPage(next);
+            this.showPage(nextIndex);
         });
     }
-    showPage(next) {
-        console.log("show", next);
+    showPage(index) {
+        console.log("show", index);
         var pageList    = JSON.parse(JSON.stringify(this.state.pageList));
-        var pageClasses = pageList.find((item) => (item.pathIndex === next[0] && item.pageIndex === next[1])).classes;
+        var pageClasses = pageList.find((item) => (item.index === index)).classes;
         if (pageClasses.indexOf("hidden") === -1) {
-            console.log("Error: page " + next[1] + " of path " + next[0] + " is already shown.");
+            console.log("Error: page " + index + " is already shown.");
             return;
         }
         pageClasses = pageClasses.filter((item) => (item !== "hidden"));
-        pageList.find((item) => (item.pathIndex === next[0] && item.pageIndex === next[1])).classes = pageClasses;
+        pageList.find((item) => (item.index === index)).classes = pageClasses;
         this.setState({
             pageList
         });
     }
-    changePage(current, next) {
-        this.hidePage(current, next);
+    changePage(currentIndex, nextIndex) {
+        this.hidePage(currentIndex, nextIndex);
     }
     fetchData() {
         var pageList = [];
@@ -139,7 +139,7 @@ class PageSystem extends Component {
             this.setState({
                 pageList: pageList
             }, () => {
-                this.showPage([0, 0]);
+                this.showPage(0);
             });
         });
     }
