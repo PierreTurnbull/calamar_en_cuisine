@@ -18,9 +18,6 @@ class Page extends Component {
         //     this.props.changePage(this.props.index, -1);
         // });
     }
-    componentWillUpdate() {
-        console.log("new props");
-    }
     render() {
         return (
             // display a div corresponding to the page
@@ -42,7 +39,13 @@ class Page extends Component {
                             className="pageBtn"
                             key={index}
                             style={item.style}
-                            onClick={() => (this.props.changePage(item.pathIndex, item.pageIndex))}
+                            onClick={() => (this.props.changePage([
+                                this.props.pageData.pathIndex,
+                                this.props.pageData.pageIndex
+                            ], [
+                                item.pathIndex,
+                                item.pageIndex
+                            ]))}
                         >
                             {item.textContent}
                         </button>
