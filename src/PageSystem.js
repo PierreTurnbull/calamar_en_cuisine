@@ -127,6 +127,15 @@ class PageSystem extends Component {
                     pageList.push(pageData);
                 }
             }
+            for (i = 0; pageList[i]; i++) {
+                let page = pageList[i];
+                for (let j = 0; page.neighbours[j]; j++) {
+                    let pathIndex               = page.neighbours[j].pathIndex;
+                    let pageIndex               = page.neighbours[j].pageIndex;
+                    let neighbourIndex          = pageList.find((item) => (item.pathIndex === pathIndex && item.pageIndex === pageIndex)).index;
+                    page.neighbours[j].index    = neighbourIndex;
+                }
+            }
             this.setState({
                 pageList: pageList
             }, () => {
