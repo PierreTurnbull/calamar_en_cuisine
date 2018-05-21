@@ -11,7 +11,11 @@ class Page extends Component {
         this.handleScroll = this.handleScroll.bind(this);
     }
     handleScroll() {
-        console.log(this.props.pageData.index);
+        if (window.pageYOffset <= 0) {
+            console.log("top");
+        } else if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight) {
+            console.log("bot");
+        }
     }
     componentDidUpdate() {
         var propsHiddenIsActive = (this.props.pageData.classes.indexOf("hidden") !== -1);
