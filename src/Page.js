@@ -4,19 +4,32 @@ import './App.css';
 class Page extends Component {
     constructor(props) {
         super();
+        this.state = {
+            hidden: true,
+            scrollListener: null
+        };
         this.handleScroll = this.handleScroll.bind(this);
     }
     handleScroll() {
-        // console.log(window.pageYOffset);
+        console.log(this.props.pageData.index);
+    }
+    componentDidUpdate() {
+        var propsHiddenIsActive = (this.props.pageData.classes.indexOf("hidden") !== -1);
+        var stateHiddenIsActive = (this.state.scrollListener === null);
+        if (!propsHiddenIsActive && stateHiddenIsActive) {
+            console.log(this.props.pageData.index, "not hidden");
+            this.setState({
+                scrollListener: window.addEventListener("scroll", this.handleScroll)
+            });
+        } else if (propsHiddenIsActive && !stateHiddenIsActive) {
+            console.log(this.props.pageData.index, "hidden");
+            window.removeEventListener("scroll", this.handleScroll);
+            this.setState({
+                scrollListener: null
+            });
+        }
     }
     componentDidMount() {
-        // window.addEventListener("mousewheel", this.handleScroll);
-        // document.querySelectorAll(".pageBtnDown")[this.props.index].addEventListener("click", () => {
-        //     this.props.changePage(this.props.index, 1);
-        // });
-        // document.querySelectorAll(".pageBtnUp")[this.props.index].addEventListener("click", () => {
-        //     this.props.changePage(this.props.index, -1);
-        // });
     }
     render() {
         return (

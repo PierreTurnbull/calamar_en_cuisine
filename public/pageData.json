@@ -10,6 +10,7 @@
                         "top": "10%",
                         "left": "10%"
                     },
+                    "scroll": "bot",
                     "textContent": "page1path0"
                 },
                 {
