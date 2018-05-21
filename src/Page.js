@@ -6,34 +6,41 @@ class Page extends Component {
         super();
         this.state = {
             hidden: true,
-            scrollListener: null
+            hidden: null
         };
         this.handleScroll = this.handleScroll.bind(this);
     }
     handleScroll() {
-        if (window.pageYOffset <= 0) {
+        var neighbourTop = this.props.pageData.neighbours.find((item) => (item.scroll === "top"));
+        var neighbourBot = this.props.pageData.neighbours.find((item) => (item.scroll === "bot"));
+        if (window.pageYOffset <= 0 && neighbourTop !== undefined) {
             console.log("top");
-        } else if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight) {
+            this.props.changePage(this.props.pageData.index, neighbourTop.index);
+        } else if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight &&
+            neighbourBot !== undefined) {
             console.log("bot");
+            this.props.changePage(this.props.pageData.index, neighbourBot.index);
         }
     }
     componentDidUpdate() {
         var propsHiddenIsActive = (this.props.pageData.classes.indexOf("hidden") !== -1);
-        var stateHiddenIsActive = (this.state.scrollListener === null);
+        var stateHiddenIsActive = (this.state.hidden === true);
         if (!propsHiddenIsActive && stateHiddenIsActive) {
             console.log(this.props.pageData.index, "not hidden");
+            window.addEventListener("scroll", this.handleScroll);
             this.setState({
-                scrollListener: window.addEventListener("scroll", this.handleScroll)
+                hidden: false
             });
         } else if (propsHiddenIsActive && !stateHiddenIsActive) {
             console.log(this.props.pageData.index, "hidden");
             window.removeEventListener("scroll", this.handleScroll);
             this.setState({
-                scrollListener: null
+                hidden: true
             });
         }
     }
     componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
     }
     render() {
         return (
@@ -47,20 +54,25 @@ class Page extends Component {
                     }
                 }
             >
+            {"page " + this.props.pageData.pageIndex + " path " + this.props.pageData.pathIndex}
             {/* for each neighbour, display a button that enables to change page
                 from the current page to the page corresponding to the neighbour */}
                 {
-                    this.props.pageData.neighbours.map((item, index) => (
-                        <
-                            button
-                            className="pageBtn"
-                            key={index}
-                            style={item.style}
-                            onClick={() => (this.props.changePage(this.props.pageData.index, item.index))}
-                        >
-                            {item.textContent}
-                        </button>
-                    ))
+                    this.props.pageData.neighbours.map((item, index) => {
+                        if (item.scroll === null) {
+                            return (
+                                <
+                                    button
+                                    className="pageBtn"
+                                    key={index}
+                                    style={item.style}
+                                    onClick={() => (this.props.changePage(this.props.pageData.index, item.index))}
+                                >
+                                    {item.textContent}
+                                </button>
+                            );
+                        }
+                    })
                 }
             </div>
         );
