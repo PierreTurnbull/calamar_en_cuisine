@@ -6,16 +6,19 @@ body {
     display: none;
 }
 
+.PageSystem_container {
+}
+
 .page {
-    position: relative;
+    top: 0;
+    left: 0;
     display: block;
-    /* opacity: 1; */
     width: 100vw;
     height: 150vh;
     background: #FDD;
     background-size: contain 100px;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center 40%;
     border: 15px solid orange;
     box-sizing: border-box;
 }
@@ -24,6 +27,11 @@ body {
     position: absolute;
     height: 50px;
     width: 50px;
+    cursor: pointer;
+}
+
+.pageBtn:hover {
+    color: darkcyan;
 }
 
 .hidden {

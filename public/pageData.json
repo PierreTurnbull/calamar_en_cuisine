@@ -7,10 +7,9 @@
                     "pathIndex": 0,
                     "pageIndex": 1,
                     "style": {
-                        "top": "10%",
+                        "top": "110%",
                         "left": "10%"
                     },
-                    "scroll": "bot",
                     "textContent": "page1path0"
                 },
                 {
@@ -20,7 +19,6 @@
                         "bottom": "25%",
                         "right": "15%"
                     },
-                    "scroll": null,
                     "textContent": "page0path1"
                 }
             ]
@@ -35,7 +33,6 @@
                         "top": "20%",
                         "left": "20%"
                     },
-                    "scroll": "top",
                     "textContent": "page0path0"
                 },
                 {
@@ -45,7 +42,6 @@
                         "top": "20%",
                         "left": "50%"
                     },
-                    "scroll": null,
                     "textContent": "page2path0"
                 }
             ]
@@ -60,7 +56,6 @@
                         "top": "20%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page1path0"
                 },
                 {
@@ -70,7 +65,6 @@
                         "top": "50%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page3path0"
                 }
             ]
@@ -85,7 +79,6 @@
                         "top": "30%",
                         "left": "30%"
                     },
-                    "scroll": null,
                     "textContent": "page2path0"
                 },
                 {
@@ -95,7 +88,6 @@
                         "top": "50%",
                         "left": "50%"
                     },
-                    "scroll": null,
                     "textContent": "page4path0"
                 }
             ]
@@ -110,7 +102,6 @@
                         "top": "20%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page3path0"
                 }
             ]
@@ -124,10 +115,11 @@
                     "pathIndex": 1,
                     "pageIndex": 1,
                     "style": {
-                        "top": "0%",
-                        "left": "0%"
+                        "top": "30%",
+                        "left": "0%",
+                        "fontSize": "50px",
+                        "backgroundColor": "red"
                     },
-                    "scroll": null,
                     "textContent": "page1path1"
                 }
             ]
@@ -142,7 +134,6 @@
                         "top": "20%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page0path1"
                 },
                 {
@@ -152,7 +143,6 @@
                         "top": "70%",
                         "left": "60%"
                     },
-                    "scroll": null,
                     "textContent": "page2path1"
                 }
             ]
@@ -167,7 +157,6 @@
                         "top": "20%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page1path1"
                 }
             ]
@@ -184,7 +173,6 @@
                         "top": "20%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page1path2"
                 }
             ]
@@ -199,7 +187,6 @@
                         "top": "20%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page0path1"
                 },
                 {
@@ -209,7 +196,6 @@
                         "top": "35%",
                         "left": "35%"
                     },
-                    "scroll": null,
                     "textContent": "page2path1"
                 }
             ]
@@ -224,7 +210,6 @@
                         "top": "0%",
                         "left": "20%"
                     },
-                    "scroll": null,
                     "textContent": "page1path2"
                 }
             ]
