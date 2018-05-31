@@ -29,7 +29,6 @@ class Page extends Component {
         }
     }
     handleScroll() {
-        // this.checkNeighbours();
         this.moveImage();
     }
     componentDidUpdate() {
@@ -60,28 +59,26 @@ class Page extends Component {
             <
                 div
                 className={this.props.pageData.classes.join(" ")}
-                style={
-                    {
-                        backgroundImage: "url('" + this.props.pageData.imgUrl + "')",
-                        backgroundPosition: this.state.backgroundPosition
-                    }
-                }
+                style={{...this.props.pageData.style, backgroundPosition: this.state.backgroundPosition}}
             >
-            {"page " + this.props.pageData.pageIndex + " path " + this.props.pageData.pathIndex}
             {/* for each neighbour, display a button that enables to change page
                 from the current page to the page corresponding to the neighbour */}
                 {
                     this.props.pageData.neighbours.map((item, index) => {
                         return (
                             <
-                                button
-                                className="pageBtn"
+                                a
+                                className="pageLink"
                                 key={index}
                                 style={item.style}
                                 onClick={() => (this.props.changePage(this.props.pageData.index, item.index))}
                             >
-                                {item.textContent}
-                            </button>
+                                <
+                                    img
+                                    className="pageLinkImg"
+                                    src={item.imgSrc}
+                                />
+                            </a>
                         );
                         return "";
                     })

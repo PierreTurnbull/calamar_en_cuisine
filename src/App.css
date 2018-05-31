@@ -13,25 +13,32 @@ body {
     top: 0;
     left: 0;
     display: block;
+    position: relative;
     width: 100vw;
     height: 150vh;
     background: #FDD;
     background-size: contain 100px;
     background-repeat: no-repeat;
-    background-position: center 40%;
-    border: 15px solid orange;
+    background-position: center 30%;
     box-sizing: border-box;
 }
 
-.pageBtn {
+.pageLink {
+    background-color: black;
     position: absolute;
-    height: 50px;
-    width: 50px;
+    display: block;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-.pageBtn:hover {
+.pageLink:hover {
     color: darkcyan;
+    filter: brightness(1.15);
+}
+
+.pageLinkImg {
+    width: 100%;
+    height: 100%;
 }
 
 .hidden {
