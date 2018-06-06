@@ -1,5 +1,12 @@
 # Calamar en cuisine
 
+## How to use this website
+
+- Donwload the ``V1.0 release``.
+- From the root directory, launch a server on port 3000 (eg: ``php -S localhost:3000``).
+- Visit ``http://localhost:3000``
+- Enjoy :)
+
 ## Data structure
 
 ### How it works
