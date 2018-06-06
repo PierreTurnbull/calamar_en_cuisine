@@ -2,41 +2,559 @@
     "path0": {
         "page0": {
             "style": {
-                "backgroundImage": "url(img/path0_page0.jpg)",
-                "backgroundColor": "#812625"
+                "backgroundImage": "url(img/path0/path0page0.jpg)",
+                "backgroundColor": "#882625"
             },
             "neighbours": [
                 {
                     "pathIndex": 0,
                     "pageIndex": 1,
                     "style": {
-                        "width": "400px",
-                        "height": "150px",
-                        "top": "70%",
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
                         "left": "0",
-                        "right": "0",
-                        "margin": "auto"
+                        "right": "0"
                     },
-                    "imgSrc": "img/path0_page0_btn0.png"
+                    "imgSrc": "img/next.png"
                 }
             ]
         },
         "page1": {
             "style": {
-                "backgroundImage": "url(img/test1.jpg)",
-                "backgroundColor": "#812625"
+                "backgroundImage": "url(img/path0/path0page1.gif)",
+                "backgroundColor": "#892726"
             },
             "neighbours": [
                 {
                     "pathIndex": 0,
                     "pageIndex": 0,
                     "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 2,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page2": {
+            "style": {
+                "backgroundImage": "url(img/path0/path0page2.jpg)",
+                "backgroundColor": "#892726"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 1,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 3,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "imgSrc": "img/next.png"
+                },
+                {
+                    "pathIndex": 1,
+                    "pageIndex": 0,
+                    "style": {
                         "width": "400px",
-                        "height": "150px",
-                        "top": "20%",
+                        "height": "400px",
+                        "top": "50%",
+                        "left": "20px"
+                    },
+                    "imgSrc": "img/path0/path0page2c0.png"
+                }
+            ]
+        },
+        "page3": {
+            "style": {
+                "backgroundImage": "url(img/path0/path0page3.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 2,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "10%",
+                        "left": "20px"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 4,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "20%"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page4": {
+            "style": {
+                "backgroundImage": "url(img/path0/path0page4.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 3,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "10%",
+                        "left": "20px"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 5,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "20%"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page5": {
+            "style": {
+                "backgroundImage": "url(img/path0/path0page5.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 4,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "right": "70%"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 2,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "500px",
+                        "height": "300px",
+                        "top": "80%",
+                        "left": "10%"
+                    },
+                    "imgSrc": "img/path0/path0page5c0.png"
+                },
+                {
+                    "pathIndex": 3,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "500px",
+                        "height": "300px",
+                        "top": "75%",
+                        "right": "10%"
+                    },
+                    "imgSrc": "img/path0/path0page5c1.png"
+                }
+            ]
+        }
+    },
+    "path1": {
+        "page0": {
+            "style": {
+                "backgroundImage": "url(img/path1/path1page0.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 2,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "50%",
                         "right": "50px"
                     },
-                    "imgSrc": "img/path0_page0_btn0.png"
+                    "imgSrc": "img/prev.png"
+                }
+            ]
+        }
+    },
+    "path2": {
+        "page0": {
+            "style": {
+                "backgroundImage": "url(img/path2/path2page0.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 2,
+                    "pageIndex": 1,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "50px"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page1": {
+            "style": {
+                "backgroundImage": "url(img/path2/path2page1.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 2,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "left": "50px"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 2,
+                    "pageIndex": 2,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "50px"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page2": {
+            "style": {
+                "backgroundImage": "url(img/path2/path2page2.jpg)",
+                "backgroundColor": "#111111"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "300px",
+                        "height": "90px",
+                        "top": "86%",
+                        "right": "0",
+                        "left": "0"
+                    },
+                    "imgSrc": "img/restart.png"
+                }
+            ]
+        }
+    },
+    "path3": {
+        "page0": {
+            "style": {
+                "backgroundImage": "url(img/path3/path3page0.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 3,
+                    "pageIndex": 1,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "50px"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page1": {
+            "style": {
+                "backgroundImage": "url(img/path3/path3page1.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 3,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "left": "50px"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 3,
+                    "pageIndex": 2,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "50px"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page2": {
+            "style": {
+                "backgroundImage": "url(img/path3/path3page2.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 3,
+                    "pageIndex": 1,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 4,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "500px",
+                        "height": "300px",
+                        "top": "80%",
+                        "right": "10%"
+                    },
+                    "imgSrc": "img/path3/path3page2c0.png"
+                },
+                {
+                    "pathIndex": 5,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "500px",
+                        "height": "300px",
+                        "top": "75%",
+                        "left": "10%"
+                    },
+                    "imgSrc": "img/path3/path3page2c1.png"
+                }
+            ]
+        }
+    },
+    "path4": {
+        "page0": {
+            "style": {
+                "backgroundImage": "url(img/path4/path4page0.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 4,
+                    "pageIndex": 1,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "50px"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page1": {
+            "style": {
+                "backgroundImage": "url(img/path4/path4page1.jpg)",
+                "backgroundColor": "#1D1D1D"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "300px",
+                        "height": "90px",
+                        "top": "90%",
+                        "right": "0",
+                        "left": "0"
+                    },
+                    "imgSrc": "img/restart.png"
+                }
+            ]
+        }
+    },
+    "path5": {
+        "page0": {
+            "style": {
+                "backgroundImage": "url(img/path5/path5page0.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 6,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "700px",
+                        "height": "200px",
+                        "top": "80%",
+                        "right": "0"
+                    },
+                    "imgSrc": "img/path5/path5page0c0.jpg"
+                },
+                {
+                    "pathIndex": 7,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "700px",
+                        "height": "200px",
+                        "top": "80%",
+                        "left": "0"
+                    },
+                    "imgSrc": "img/path5/path5page0c1.jpg"
+                }
+            ]
+        }
+    },
+    "path6": {
+        "page0": {
+            "style": {
+                "backgroundImage": "url(img/path6/path6page0.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "300px",
+                        "height": "90px",
+                        "top": "93%",
+                        "left": "0",
+                        "right": "0"
+                    },
+                    "imgSrc": "img/restart.png"
+                }
+            ]
+        }
+    },
+    "path7": {
+        "page0": {
+            "style": {
+                "backgroundImage": "url(img/path7/path7page0.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 7,
+                    "pageIndex": 1,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "50px"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page1": {
+            "style": {
+                "backgroundImage": "url(img/path7/path7page1.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 7,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "left": "50px"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 7,
+                    "pageIndex": 2,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "80%",
+                        "right": "50px"
+                    },
+                    "imgSrc": "img/next.png"
+                }
+            ]
+        },
+        "page2": {
+            "style": {
+                "backgroundImage": "url(img/path7/path7page2.jpg)",
+                "backgroundColor": "#B84938"
+            },
+            "neighbours": [
+                {
+                    "pathIndex": 7,
+                    "pageIndex": 1,
+                    "style": {
+                        "width": "218px",
+                        "height": "276px",
+                        "top": "0%",
+                        "left": "50px"
+                    },
+                    "imgSrc": "img/prev.png"
+                },
+                {
+                    "pathIndex": 0,
+                    "pageIndex": 0,
+                    "style": {
+                        "width": "300px",
+                        "height": "90px",
+                        "top": "90%",
+                        "right": "0",
+                        "left": "0"
+                    },
+                    "imgSrc": "img/restart.png"
                 }
             ]
         }
