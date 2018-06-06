@@ -80,7 +80,6 @@ class Page extends Component {
                                 />
                             </a>
                         );
-                        return "";
                     })
                 }
             </div>

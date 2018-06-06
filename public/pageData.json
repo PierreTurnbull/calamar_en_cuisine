@@ -76,9 +76,8 @@
                     "style": {
                         "width": "218px",
                         "height": "276px",
-                        "top": "80%",
-                        "left": "0",
-                        "right": "0"
+                        "top": "82%",
+                        "right": "20%"
                     },
                     "imgSrc": "img/next.png"
                 },
@@ -554,7 +553,7 @@
                         "right": "0",
                         "left": "0"
                     },
-                    "imgSrc": "img/restart.png"
+                    "imgSrc": "img/path7/path7page2c0.png"
                 }
             ]
         }
