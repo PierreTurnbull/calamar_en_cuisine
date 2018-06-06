@@ -1,5 +1,9 @@
 # Calamar en cuisine
 
+## Story
+
+Onizuko is a restaurant owner. His business is going very bad and he struggles to survive. Maybe the right choices will help him become great..
+
 ## How to use this website
 
 - Donwload the ``V1.0 release``.
