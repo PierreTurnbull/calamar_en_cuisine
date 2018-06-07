@@ -6,7 +6,7 @@ Onizuko is a restaurant owner. His business is going very bad and he struggles t
 
 ## How to use this website
 
-- Donwload the ``V1.0 release``.
+- Donwload the [``V1.1 release``](https://github.com/PierreTurnbull/calamar_en_cuisine/releases/tag/V1.1).
 - From the root directory, launch a server on port 3000 (eg: ``php -S localhost:3000``).
 - Visit ``http://localhost:3000``
 - Enjoy :)
