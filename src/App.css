@@ -44,3 +44,35 @@ body {
 .hidden {
     display: none;
 }
+
+.Player {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    opacity: 0.1;
+    transition: 0.2s;
+}
+
+.Player:hover {
+    opacity: 1;
+}
+
+.Player::-webkit-media-controls-panel {
+    width: 300px;
+}
+
+.Player input {
+    background: red;
+}
+
+.Player::-webkit-media-controls-timeline-container,
+.Player::-webkit-media-controls-current-time-display,
+.Player::-webkit-media-controls-time-remaining-display,
+.Player::-webkit-media-controls-seek-back-button,
+.Player::-webkit-media-controls-seek-forward-button,
+.Player::-webkit-media-controls-fullscreen-button,
+.Player::-webkit-media-controls-rewind-button,
+.Player::-webkit-media-controls-return-to-realtime-button,
+.Player::-webkit-media-controls-toggle-closed-captions-button {
+    display: none;
+}
