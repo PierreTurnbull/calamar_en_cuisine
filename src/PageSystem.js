@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Page } from './Page.js';
+import { MusicPlayer } from './MusicPlayer.js';
 
 class PageSystem extends Component {
     constructor(props) {
@@ -111,6 +112,7 @@ class PageSystem extends Component {
                         );
                     }
                 )}
+                <MusicPlayer />
             </div>
         );
     }
